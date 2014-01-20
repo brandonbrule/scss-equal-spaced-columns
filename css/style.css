@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+}
+
+/* -- Clearfix -- */
+/* -- nth-child fun colour loop -- */
+.col:nth-child(4n+1) {
+  background: #455e5b;
+}
+
+.col:nth-child(4n+2) {
+  background: #759e99;
+}
+
+.col:nth-child(4n+3) {
+  background: #bf8a36;
+}
+
+.col:nth-child(4n+4) {
+  background: #b05f25;
+}
+
+/* Equal spaced columns with margin and first margin considerations */
+/* Dynamic Variables - Consistantly spaced equal columns grid */
+/* Return Calculated Width */
+.container {
+  margin: 0 auto;
+}
+@media (min-width: 40em) {
+  .container {
+    width: 40em;
+  }
+}
+
+.col-container:before, .col-container:after {
+  content: " ";
+  display: table;
+}
+.col-container:after {
+  clear: both;
+}
+
+.col {
+  float: left;
+  height: 8em;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+  margin: 0.5em 0 0 0;
+}
+@media (min-width: 40em) {
+  .col {
+    margin-left: 0.5em;
+  }
+}
+.col:first-child {
+  margin-left: 0;
+}
+
+@media (min-width: 40em) {
+  .col-2 {
+    width: 19.75em;
+  }
+}
+
+@media (min-width: 40em) {
+  .col-3 {
+    width: 13em;
+  }
+}
+
+@media (min-width: 40em) {
+  .col-4 {
+    width: 9.625em;
+  }
+}
+
+@media (min-width: 40em) {
+  .col-5 {
+    width: 7.6em;
+  }
+}
