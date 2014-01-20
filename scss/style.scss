@@ -1,0 +1,107 @@
+@import "compass/css3";
+
+body { margin:0; }
+
+/* -- Clearfix -- */
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/* -- nth-child fun colour loop -- */
+$colors:#455E5B, #759E99, #BF8A36, #B05F25;
+@for $i from 1 through length($colors) {
+    .col:nth-child(#{length($colors)}n+#{$i}) {
+        background: nth($colors, $i);
+    }
+}
+
+
+/* Equal spaced columns with margin and first margin considerations */
+/* Dynamic Variables - Consistantly spaced equal columns grid */
+$medium-width : 40em;
+$common-margin : 0.5em;
+$box-height : 8em;
+ 
+/* Return Calculated Width */
+@function calculated-width($containerWidth, $number-of-cols : 0 ){ 
+   @return ($containerWidth - (($number-of-cols - 1) * $common-margin)) / $number-of-cols;
+}
+
+
+.container {
+  margin: 0 auto;
+  @media(min-width: $medium-width){
+     width: $medium-width; 
+  }
+}
+
+.col-container { 
+  @include clearfix; 
+}
+
+.col{
+  float:left; 
+  height: $box-height;
+  width:100%;
+  box-sizing:border-box;
+  padding:1em;
+  margin: $common-margin 0 0 0;
+
+  @media (min-width: $medium-width){
+    margin-left: $common-margin;
+  }
+  
+  &:first-child { margin-left:0;}
+}
+
+.col-2{
+  $number-of-cols : 2;
+  
+  @media (min-width: $medium-width){
+    width: calculated-width($medium-width, $number-of-cols);
+  }
+}
+
+
+.col-3{
+  $number-of-cols : 3;
+  
+  @media (min-width: $medium-width){
+    width: calculated-width($medium-width, $number-of-cols);
+  }
+}
+
+
+.col-4{
+  $number-of-cols : 4;
+  
+  @media (min-width: $medium-width){
+    width: calculated-width($medium-width, $number-of-cols);
+  }
+}
+
+.col-5{
+  $number-of-cols : 5;
+  
+  @media (min-width: $medium-width){
+    width: calculated-width($medium-width, $number-of-cols);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
