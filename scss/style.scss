@@ -1,105 +1,123 @@
+<<<<<<< HEAD
 body { margin:0; }
 
 /* -- Clearfix -- */
 @mixin clearfix {
   &:before,
+=======
+body{ background: black; color: #fff; }
+
+// -- Clearfix -- //
+// @extend .clearfix
+.clearfix {
+>>>>>>> origin/master
   &:after {
-    content: " ";
+    content: "";
     display: table;
-  }
-  &:after {
     clear: both;
   }
 }
 
-/* -- nth-child fun colour loop -- */
-$colors:#455E5B, #759E99, #BF8A36, #B05F25;
-@for $i from 1 through length($colors) {
-    .col:nth-child(#{length($colors)}n+#{$i}) {
-        background: nth($colors, $i);
-    }
-}
 
 
-/* Equal spaced columns with margin and first margin considerations */
-/* Dynamic Variables - Consistantly spaced equal columns grid */
-$medium-width : 40em;
-$common-margin : 0.5em;
-$box-height : 8em;
- 
-/* Return Calculated Width */
-@function calculated-width($containerWidth, $number-of-cols : 0 ){ 
-   @return ($containerWidth - (($number-of-cols - 1) * $common-margin)) / $number-of-cols;
-}
+// -- Equal Spaced Columns -- //
+// Number of Columns - First Column
+// Remaining Number of Columns * Margin Spacing
+// Container Width - Total Margin Spacing
+// Remaining Width / Total Number of Columns
 
-
-.container {
-  margin: 0 auto;
-  @media(min-width: $medium-width){
-     width: $medium-width; 
-  }
-}
-
-.col-container { 
-  @include clearfix; 
-}
-
-.col{
-  float:left; 
-  height: $box-height;
-  width:100%;
-  box-sizing:border-box;
-  padding:1em;
-  margin: $common-margin 0 0 0;
-
-  @media (min-width: $medium-width){
-    margin-left: $common-margin;
+@mixin equalSpaced( $num_of_cols, $spacing, $container_width  ){
+  
+  width: ( $container_width - ( $spacing * ($num_of_cols - 1) ) ) / $num_of_cols;
+  margin-left: $spacing;
+  margin-top: $spacing;
+  
+  // Remove Spacing from First Child
+  &:first-child{
+    margin-left: 0;
   }
   
-  &:first-child { margin-left:0;}
+  
+  // We can remove These two things to simply things
+  // ===============================================
+  // When there's more than one row of columns
+  
+  // Remove margin-left of the first element in the row.
+  &:nth-child( #{$num_of_cols}n + 1){
+    margin-left: 0;
+  }
+  
+  // Top Row Remove Margin Top
+  @for $i from 1 through $num_of_cols {
+      &:nth-child(#{$i}) {
+          margin-top: 0;
+      }
+  }
+
+  
 }
 
+
+
+
+
+.container{
+  max-width: 800px;
+  margin: 5% auto;
+}
+
+
+.col-container{
+  background: black;
+  @extend .clearfix;
+}
+
+
+
+// Col 2 Usage
 .col-2{
-  $number-of-cols : 2;
-  
-  @media (min-width: $medium-width){
-    width: calculated-width($medium-width, $number-of-cols);
-  }
+  background: #fff;
+  height: 100px;
+  float: left;
+  // equalSpaced( $num_of_cols, $spacing, $width  )
+  @include equalSpaced(2, 5%, 100%);
 }
 
 
+// Col 2 Usage
 .col-3{
-  $number-of-cols : 3;
-  
-  @media (min-width: $medium-width){
-    width: calculated-width($medium-width, $number-of-cols);
-  }
+  background: #fff;
+  height: 100px;
+  float: left;
+  // equalSpaced( $num_of_cols, $spacing, $width  )
+  @include equalSpaced(3, 1%, 100%);
 }
 
 
+
+// -- Responsive Usage -- //
+// Col 4 Usage
 .col-4{
-  $number-of-cols : 4;
+  background: red;
+  height: 100px;
+  margin-top: 5%;
   
-  @media (min-width: $medium-width){
-    width: calculated-width($medium-width, $number-of-cols);
+  // Start Floating Columns
+  @media screen and (min-width: 500px){
+    float: left;
   }
-}
-
-.col-5{
-  $number-of-cols : 5;
   
-  @media (min-width: $medium-width){
-    width: calculated-width($medium-width, $number-of-cols);
+  // 2 Columns from 500px - 800px
+  @media screen and (min-width: 500px) and (max-width: 799px){
+    // equalSpaced( $num_of_cols, $spacing, $width  )
+    @include equalSpaced(2, 2%, 100%);
   }
+  
+  // 4 Columns starting at 800px
+  @media screen and (min-width: 800px){
+    // equalSpaced( $num_of_cols, $spacing, $width  )
+    @include equalSpaced(4, 2%, 100%);
+  }
+  
+  
 }
-
-
-
-
-
-
-
-
-
-
-

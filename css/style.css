@@ -1,62 +1,43 @@
-body {
-  margin: 0; }
+/*
+Error: Invalid CSS after "}": expected "}", was ""
+        on line 124 of scss/style.scss
 
-/* -- Clearfix -- */
-/* -- nth-child fun colour loop -- */
-.col:nth-child(4n+1) {
-  background: #455E5B; }
+119:     @include equalSpaced(4, 2%, 100%);
+120:   }
+121:   
+122:   
+123: }
 
-.col:nth-child(4n+2) {
-  background: #759E99; }
-
-.col:nth-child(4n+3) {
-  background: #BF8A36; }
-
-.col:nth-child(4n+4) {
-  background: #B05F25; }
-
-/* Equal spaced columns with margin and first margin considerations */
-/* Dynamic Variables - Consistantly spaced equal columns grid */
-/* Return Calculated Width */
-.container {
-  margin: 0 auto; }
-  @media (min-width: 40em) {
-    .container {
-      width: 40em; } }
-
-.col-container:before, .col-container:after {
-  content: " ";
-  display: table; }
-.col-container:after {
-  clear: both; }
-
-.col {
-  float: left;
-  height: 8em;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 1em;
-  margin: 0.5em 0 0 0; }
-  @media (min-width: 40em) {
-    .col {
-      margin-left: 0.5em; } }
-  .col:first-child {
-    margin-left: 0; }
-
-@media (min-width: 40em) {
-  .col-2 {
-    width: 19.75em; } }
-
-@media (min-width: 40em) {
-  .col-3 {
-    width: 13em; } }
-
-@media (min-width: 40em) {
-  .col-4 {
-    width: 9.625em; } }
-
-@media (min-width: 40em) {
-  .col-5 {
-    width: 7.6em; } }
-
-/*# sourceMappingURL=style.css.map */
+Backtrace:
+scss/style.scss:124
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:1163:in `expected'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:1099:in `expected'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:1094:in `tok!'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:643:in `block'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:231:in `mixin_directive'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:219:in `special_directive'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:194:in `directive'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:660:in `block_child'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:653:in `block_contents'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:117:in `stylesheet'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:42:in `parse'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/engine.rb:393:in `_to_tree'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/engine.rb:285:in `render_with_sourcemap'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:489:in `update_stylesheet'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:469:in `on_file_changed'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:328:in `block in watch'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:252:in `call'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"}\": expected \"}\", was \"\"\A         on line 124 of scss/style.scss\A \A 119:     @include equalSpaced(4, 2%, 100%);\A 120:   }\A 121:   \A 122:   \A 123: }"; }
