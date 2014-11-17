@@ -1,43 +1,89 @@
-/*
-Error: Invalid CSS after "}": expected "}", was ""
-        on line 124 of scss/style.scss
+body {
+  background: black;
+  color: #fff; }
 
-119:     @include equalSpaced(4, 2%, 100%);
-120:   }
-121:   
-122:   
-123: }
+.clearfix:after, .col-container:after {
+  content: "";
+  display: table;
+  clear: both; }
 
-Backtrace:
-scss/style.scss:124
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:1163:in `expected'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:1099:in `expected'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:1094:in `tok!'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:643:in `block'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:231:in `mixin_directive'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:219:in `special_directive'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:194:in `directive'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:660:in `block_child'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:653:in `block_contents'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:117:in `stylesheet'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:42:in `parse'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/engine.rb:393:in `_to_tree'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/engine.rb:285:in `render_with_sourcemap'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:489:in `update_stylesheet'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:469:in `on_file_changed'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:328:in `block in watch'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:252:in `call'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"}\": expected \"}\", was \"\"\A         on line 124 of scss/style.scss\A \A 119:     @include equalSpaced(4, 2%, 100%);\A 120:   }\A 121:   \A 122:   \A 123: }"; }
+.container {
+  max-width: 800px;
+  margin: 5% auto; }
+
+.col-container {
+  background: black; }
+
+.col-2 {
+  background: #fff;
+  height: 100px;
+  float: left;
+  width: 47.5%;
+  margin-left: 5%;
+  margin-top: 5%; }
+  .col-2:first-child {
+    margin-left: 0; }
+  .col-2:nth-child(2n + 1) {
+    margin-left: 0; }
+  .col-2:nth-child(1) {
+    margin-top: 0; }
+  .col-2:nth-child(2) {
+    margin-top: 0; }
+
+.col-3 {
+  background: #fff;
+  height: 100px;
+  float: left;
+  width: 32.66667%;
+  margin-left: 1%;
+  margin-top: 1%; }
+  .col-3:first-child {
+    margin-left: 0; }
+  .col-3:nth-child(3n + 1) {
+    margin-left: 0; }
+  .col-3:nth-child(1) {
+    margin-top: 0; }
+  .col-3:nth-child(2) {
+    margin-top: 0; }
+  .col-3:nth-child(3) {
+    margin-top: 0; }
+
+.col-4 {
+  background: red;
+  height: 100px;
+  margin-top: 5%; }
+  @media screen and (min-width: 500px) {
+    .col-4 {
+      float: left; } }
+  @media screen and (min-width: 500px) and (max-width: 799px) {
+    .col-4 {
+      width: 49%;
+      margin-left: 2%;
+      margin-top: 2%; }
+      .col-4:first-child {
+        margin-left: 0; }
+      .col-4:nth-child(2n + 1) {
+        margin-left: 0; }
+      .col-4:nth-child(1) {
+        margin-top: 0; }
+      .col-4:nth-child(2) {
+        margin-top: 0; } }
+  @media screen and (min-width: 800px) {
+    .col-4 {
+      width: 23.5%;
+      margin-left: 2%;
+      margin-top: 2%; }
+      .col-4:first-child {
+        margin-left: 0; }
+      .col-4:nth-child(4n + 1) {
+        margin-left: 0; }
+      .col-4:nth-child(1) {
+        margin-top: 0; }
+      .col-4:nth-child(2) {
+        margin-top: 0; }
+      .col-4:nth-child(3) {
+        margin-top: 0; }
+      .col-4:nth-child(4) {
+        margin-top: 0; } }
+
+/*# sourceMappingURL=style.css.map */
