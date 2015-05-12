@@ -22,6 +22,7 @@ body{ background: black; color: #fff; }
   
   width: ( $container_width - ( $spacing * ($num_of_cols - 1) ) ) / $num_of_cols;
   margin-left: $spacing;
+  float:left;
   margin-top: $spacing;
   
   // Remove Spacing from First Child
@@ -29,9 +30,6 @@ body{ background: black; color: #fff; }
     margin-left: 0;
   }
   
-  
-  // We can remove These two things to simply things
-  // ===============================================
   // When there's more than one row of columns
   
   // Remove margin-left of the first element in the row.
