@@ -1,18 +1,8 @@
-body{ background: black; color: #fff; }
-
-// -- Clearfix -- //
-// @extend .clearfix
-.clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
-
-
 // -- Equal Spaced Columns -- //
+// Usage
+// @include equalSpaced(2, 5%, 100%);
+// @include equalSpaced(2, 5px, 100px);
+
 // Number of Columns - First Column
 // Remaining Number of Columns * Margin Spacing
 // Container Width - Total Margin Spacing
@@ -47,67 +37,3 @@ body{ background: black; color: #fff; }
   
 }
 
-
-
-
-
-.container{
-  max-width: 800px;
-  margin: 5% auto;
-}
-
-
-.col-container{
-  background: black;
-  @extend .clearfix;
-}
-
-
-
-// Col 2 Usage
-.col-2{
-  background: #fff;
-  height: 100px;
-  float: left;
-  // equalSpaced( $num_of_cols, $spacing, $width  )
-  @include equalSpaced(2, 5%, 100%);
-}
-
-
-// Col 2 Usage
-.col-3{
-  background: #fff;
-  height: 100px;
-  float: left;
-  // equalSpaced( $num_of_cols, $spacing, $width  )
-  @include equalSpaced(3, 1%, 100%);
-}
-
-
-
-// -- Responsive Usage -- //
-// Col 4 Usage
-.col-4{
-  background: red;
-  height: 100px;
-  margin-top: 5%;
-  
-  // Start Floating Columns
-  @media screen and (min-width: 500px){
-    float: left;
-  }
-  
-  // 2 Columns from 500px - 800px
-  @media screen and (min-width: 500px) and (max-width: 799px){
-    // equalSpaced( $num_of_cols, $spacing, $width  )
-    @include equalSpaced(2, 2%, 100%);
-  }
-  
-  // 4 Columns starting at 800px
-  @media screen and (min-width: 800px){
-    // equalSpaced( $num_of_cols, $spacing, $width  )
-    @include equalSpaced(4, 2%, 100%);
-  }
-  
-  
-}
